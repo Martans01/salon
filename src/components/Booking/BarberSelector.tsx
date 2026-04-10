@@ -24,7 +24,7 @@ export default function BarberSelector({ barbers, selectedBarberId, onSelect, is
   if (barbers.length === 0) {
     return (
       <div className="bg-zinc-900 rounded-xl p-8 text-center">
-        <p className="text-zinc-400">No hay barberos disponibles en este momento.</p>
+        <p className="text-zinc-400">No hay estilistas disponibles en este momento.</p>
       </div>
     )
   }

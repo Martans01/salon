@@ -7,13 +7,13 @@ import { BUSINESS_INFO } from '@/utils/constants';
 export default function Footer() {
   return (
     <motion.footer
-      className="footer bg-zinc-900 py-16 relative"
+      className="footer bg-[#fdf8f5] py-16 relative"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      {/* Gradient orange separator */}
+      {/* Separator */}
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="container max-w-7xl mx-auto px-6">
@@ -23,13 +23,13 @@ export default function Footer() {
             <Image
               src="/images/logos/logo.png"
               alt="Belle Studio Logo"
-              width={56}
-              height={56}
-              className="footer-logo rounded-full mr-4 transition-shadow duration-300 group-hover:shadow-[0_0_20px_rgba(236,72,153,0.3)]"
+              width={52}
+              height={52}
+              className="footer-logo rounded-full mr-4"
             />
             <div>
-              <h4 className="text-white font-bold text-xl">BARBERPRO</h4>
-              <p className="text-gray-500 text-sm">{BUSINESS_INFO.location}</p>
+              <h4 className="font-playfair text-xl font-normal text-[#3d2c33] italic">Belle Studio</h4>
+              <p className="text-[#5a4249]/40 text-sm">{BUSINESS_INFO.location}</p>
             </div>
           </div>
 
@@ -39,8 +39,8 @@ export default function Footer() {
               href={`https://instagram.com/${BUSINESS_INFO.instagram.replace('@', '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-zinc-700 hover:border-pink-500/50 flex items-center justify-center text-gray-400 hover:text-pink-500 transition-all duration-300"
-              whileHover={{ y: -2, boxShadow: '0 4px 15px rgba(236,72,153,0.15)' }}
+              className="w-10 h-10 rounded-full border border-[#c48b8b]/20 hover:border-[#c48b8b]/50 flex items-center justify-center text-[#5a4249]/40 hover:text-[#c48b8b] transition-all duration-300"
+              whileHover={{ y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -50,11 +50,11 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="w-full max-w-xs section-divider" />
+          <div className="w-full max-w-xs elegant-line" />
 
           {/* Credits */}
-          <p className="text-gray-500 text-sm text-center">
-            © {new Date().getFullYear()} Belle Studio · Powered by Belle Studio Template
+          <p className="text-[#5a4249]/30 text-sm text-center">
+            &copy; {new Date().getFullYear()} Belle Studio
           </p>
         </div>
       </div>

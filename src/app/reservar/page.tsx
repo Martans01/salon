@@ -59,8 +59,8 @@ export default function ReservarPage() {
 
   // Load saved client info from localStorage
   useEffect(() => {
-    const savedName = localStorage.getItem('jd_client_name')
-    const savedPhone = localStorage.getItem('jd_client_phone')
+    const savedName = localStorage.getItem('bs_client_name')
+    const savedPhone = localStorage.getItem('bs_client_phone')
     if (savedName) setClientName(savedName)
     if (savedPhone) setClientPhone(savedPhone)
   }, [])
@@ -175,7 +175,7 @@ export default function ReservarPage() {
     fetch(`/api/barbers?branch_id=${branchId}`)
       .then(r => r.ok ? r.json() : [])
       .then(data => setBarbers(Array.isArray(data) ? data : []))
-      .catch(() => setError('Error cargando barberos'))
+      .catch(() => setError('Error cargando estilistas'))
       .finally(() => setIsLoadingBarbers(false))
   }
 
@@ -189,7 +189,7 @@ export default function ReservarPage() {
       const res = await fetch(url)
       if (res.ok) setBarbers(await res.json())
     } catch {
-      setError('Error cargando barberos')
+      setError('Error cargando estilistas')
     } finally {
       setIsLoadingBarbers(false)
     }
@@ -251,8 +251,8 @@ export default function ReservarPage() {
     setError(null)
 
     try {
-      localStorage.setItem('jd_client_name', clientName.trim())
-      localStorage.setItem('jd_client_phone', clientPhone)
+      localStorage.setItem('bs_client_name', clientName.trim())
+      localStorage.setItem('bs_client_phone', clientPhone)
 
       const res = await fetch('/api/book', {
         method: 'POST',
@@ -299,7 +299,7 @@ export default function ReservarPage() {
 
   const steps: { key: Step; label: string }[] = [
     ...(hasMultipleBranches ? [{ key: 'branch' as Step, label: 'Sucursal' }] : []),
-    ...(hasMultipleBarbers ? [{ key: 'barber' as Step, label: 'Barbero' }] : []),
+    ...(hasMultipleBarbers ? [{ key: 'barber' as Step, label: 'Estilista' }] : []),
     { key: 'date', label: 'Fecha' },
     { key: 'time', label: 'Hora' },
     { key: 'services', label: 'Servicios' },
@@ -387,7 +387,7 @@ export default function ReservarPage() {
                     </div>
                     <div className="text-center">
                       <p className="text-white font-semibold text-lg">En el local</p>
-                      <p className="text-zinc-500 text-sm mt-1">Visita nuestro estudio</p>
+                      <p className="text-zinc-500 text-sm mt-1">Visita nuestro salón</p>
                     </div>
                   </button>
 
@@ -435,7 +435,7 @@ export default function ReservarPage() {
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                 {hasMultipleBranches ? 'Cambiar sucursal' : 'Cambiar modalidad'}
               </button>
-              <h2 className="text-xl font-bold text-white mb-1">Elige tu barbero</h2>
+              <h2 className="text-xl font-bold text-white mb-1">Elige tu estilista</h2>
               <p className="text-zinc-400 text-sm mb-4">Selecciona con quién deseas tu cita</p>
               <BarberSelector
                 barbers={barbers}
@@ -451,16 +451,16 @@ export default function ReservarPage() {
             <motion.div key="date" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
               <button onClick={() => setStep(hasMultipleBarbers ? 'barber' : 'type')} className="text-pink-500 text-sm mb-3 flex items-center gap-1 hover:underline">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-                {hasMultipleBarbers ? 'Cambiar barbero' : 'Cambiar modalidad'}
+                {hasMultipleBarbers ? 'Cambiar estilista' : 'Cambiar modalidad'}
               </button>
               <h2 className="text-xl font-bold text-white mb-1">Selecciona una fecha</h2>
-              <p className="text-zinc-400 text-sm mb-4">Los días con punto naranja tienen horarios disponibles</p>
+              <p className="text-zinc-400 text-sm mb-4">Los días con punto rosa tienen horarios disponibles</p>
               {isLoadingDates ? (
                 <div className="bg-zinc-900 rounded-xl p-4 h-80 animate-pulse" />
               ) : availableDates.length === 0 ? (
                 <div className="bg-zinc-900 rounded-xl p-8 text-center">
                   <p className="text-zinc-400">No hay horarios disponibles en este momento.</p>
-                  <p className="text-zinc-500 text-sm mt-2">Contacta al barbero por WhatsApp para más información.</p>
+                  <p className="text-zinc-500 text-sm mt-2">Contáctanos por WhatsApp para más información.</p>
                   <a
                     href={`https://wa.me/${BUSINESS_INFO.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hola! Me gustaría agendar una cita pero no veo horarios disponibles. ¿Cuándo tienes disponibilidad?')}`}
                     target="_blank"

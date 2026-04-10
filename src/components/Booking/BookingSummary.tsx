@@ -37,7 +37,7 @@ export default function BookingSummary({
         )}
         {barberName && (
           <div className="flex justify-between text-sm">
-            <span className="text-zinc-400">Barbero</span>
+            <span className="text-zinc-400">Estilista</span>
             <span className="text-white">{barberName}</span>
           </div>
         )}

@@ -56,10 +56,10 @@ function TeamGrid() {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {[1, 2, 3].map(i => (
-          <div key={i} className="bg-zinc-900 rounded-2xl p-6 animate-pulse">
-            <div className="w-32 h-32 mx-auto rounded-full bg-zinc-800 mb-4" />
-            <div className="h-5 bg-zinc-800 rounded mb-2 w-2/3 mx-auto" />
-            <div className="h-4 bg-zinc-800 rounded w-1/2 mx-auto" />
+          <div key={i} className="bg-white rounded-2xl p-6 animate-pulse shadow-sm">
+            <div className="w-32 h-32 mx-auto rounded-full bg-[#f5ebe4] mb-4" />
+            <div className="h-5 bg-[#f5ebe4] rounded mb-2 w-2/3 mx-auto" />
+            <div className="h-4 bg-[#f5ebe4] rounded w-1/2 mx-auto" />
           </div>
         ))}
       </div>
@@ -69,7 +69,7 @@ function TeamGrid() {
   if (barbers.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-zinc-500">Pronto presentaremos a nuestro equipo</p>
+        <p className="text-[#5a4249]/50">Pronto presentaremos a nuestro equipo</p>
       </div>
     );
   }
@@ -79,13 +79,13 @@ function TeamGrid() {
       {barbers.map((barber, index) => (
         <motion.div
           key={barber.id}
-          className="bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-2xl p-6 border border-zinc-800 hover:border-pink-500/50 transition-colors"
+          className="bg-white rounded-2xl p-6 border border-[#c48b8b]/10 hover:border-[#c48b8b]/30 transition-colors shadow-sm"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
         >
-          <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden ring-2 ring-pink-500/30 mb-4">
+          <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden ring-2 ring-[#c48b8b]/20 mb-4">
             {barber.image_url ? (
               <Image
                 src={barber.image_url}
@@ -95,25 +95,25 @@ function TeamGrid() {
                 sizes="128px"
               />
             ) : (
-              <div className="w-full h-full bg-zinc-800 flex items-center justify-center">
-                <svg className="w-16 h-16 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-full h-full bg-[#f5ebe4] flex items-center justify-center">
+                <svg className="w-16 h-16 text-[#c48b8b]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
             )}
           </div>
-          <h3 className="text-xl font-bold text-white text-center mb-1">{barber.name}</h3>
+          <h3 className="text-xl font-bold text-[#3d2c33] text-center mb-1">{barber.name}</h3>
           {barber.title && (
-            <p className="text-pink-500 text-sm text-center mb-1">{barber.title}</p>
+            <p className="text-[#c48b8b] text-sm text-center mb-1">{barber.title}</p>
           )}
           {hasMultipleBranches && barber.branch && (
-            <p className="text-blue-400 text-xs text-center mb-2">{barber.branch.name}</p>
+            <p className="text-[#c48b8b]/70 text-xs text-center mb-2">{barber.branch.name}</p>
           )}
           {barber.bio && (
-            <p className="text-gray-400 text-sm text-center line-clamp-3 mb-3">{barber.bio}</p>
+            <p className="text-[#5a4249]/60 text-sm text-center line-clamp-3 mb-3">{barber.bio}</p>
           )}
           {barber.years_of_experience > 0 && (
-            <p className="text-zinc-500 text-xs text-center">
+            <p className="text-[#5a4249]/40 text-xs text-center">
               {barber.years_of_experience}+ años de experiencia
             </p>
           )}
@@ -126,7 +126,7 @@ function TeamGrid() {
 export default function AboutSection() {
   if (hasMultipleBarbers) {
     return (
-      <section id="about" className="about-section py-20 bg-black">
+      <section id="about" className="about-section py-24 bg-white">
         <div className="about-container max-w-7xl mx-auto px-6">
           <motion.div
             className="about-header text-center mb-16"
@@ -135,14 +135,12 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              NUESTRO EQUIPO
+            <span className="text-[#c48b8b] text-sm tracking-[0.2em] uppercase mb-3 block">Profesionales</span>
+            <h2 className="font-playfair text-4xl md:text-5xl font-normal text-[#3d2c33] mb-4 italic">
+              Nuestro Equipo
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Profesionales apasionados listos para atenderte
-            </p>
             <motion.div
-              className="w-16 h-1 bg-pink-500 mx-auto mt-4"
+              className="w-16 h-px bg-gradient-to-r from-transparent via-[#c48b8b] to-transparent mx-auto mt-4"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
@@ -157,7 +155,7 @@ export default function AboutSection() {
   }
 
   return (
-    <section id="about" className="about-section py-20 bg-black">
+    <section id="about" className="about-section py-24 bg-white">
       <div className="about-container max-w-7xl mx-auto px-6">
         <motion.div
           className="about-header text-center mb-16"
@@ -166,11 +164,12 @@ export default function AboutSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            SOBRE EL BARBERO
+          <span className="text-[#c48b8b] text-sm tracking-[0.2em] uppercase mb-3 block">Conóceme</span>
+          <h2 className="font-playfair text-4xl md:text-5xl font-normal text-[#3d2c33] mb-4 italic">
+            Sobre la Estilista
           </h2>
           <motion.div
-            className="w-16 h-1 bg-pink-500 mx-auto mt-4"
+            className="w-16 h-px bg-gradient-to-r from-transparent via-[#c48b8b] to-transparent mx-auto mt-4"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
@@ -178,10 +177,10 @@ export default function AboutSection() {
           />
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Portrait — clip-path reveal + hover zoom */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Portrait */}
           <motion.div
-            className="relative aspect-[3/4] rounded-2xl overflow-hidden ring-2 ring-pink-500/30 ring-glow mx-auto max-w-md lg:max-w-none w-full group"
+            className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-xl mx-auto max-w-md lg:max-w-none w-full group"
             initial={{ clipPath: 'inset(100% 0 0 0)' }}
             whileInView={{ clipPath: 'inset(0% 0 0 0)' }}
             viewport={{ once: true }}
@@ -191,9 +190,11 @@ export default function AboutSection() {
               src={BARBER_PROFILE.imageSrc}
               alt={BARBER_PROFILE.imageAlt}
               fill
-              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
+            {/* Subtle warm overlay on hover */}
+            <div className="absolute inset-0 bg-[#c48b8b]/0 group-hover:bg-[#c48b8b]/5 transition-colors duration-500" />
           </motion.div>
 
           {/* Bio */}
@@ -204,10 +205,11 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h3 className="text-3xl md:text-4xl font-bold text-white">
+            <h3 className="font-playfair text-3xl md:text-4xl font-normal text-[#3d2c33] italic">
               {BARBER_PROFILE.name}
             </h3>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <div className="w-12 h-px bg-[#c48b8b]" />
+            <p className="text-[#5a4249]/70 text-lg leading-relaxed">
               {BARBER_PROFILE.bio}
             </p>
 
@@ -220,21 +222,19 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <p className="text-4xl font-bold text-pink-500">
+                <p className="font-playfair text-4xl font-normal text-[#c48b8b] italic">
                   <AnimatedCounter target={BARBER_PROFILE.yearsOfExperience} suffix="+" />
                 </p>
-                <p className="text-gray-400 text-sm mt-1">Años de experiencia</p>
+                <p className="text-[#5a4249]/50 text-sm mt-1">Años de experiencia</p>
               </motion.div>
 
-              {/* Animated divider line */}
               <motion.div
-                className="w-px bg-zinc-700"
+                className="w-px bg-[#c48b8b]/20"
                 initial={{ height: 0 }}
                 whileInView={{ height: 64 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               />
-
             </div>
           </motion.div>
         </div>

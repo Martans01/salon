@@ -1,11 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
 });
 
 export const metadata: Metadata = {
@@ -25,8 +31,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Belle Studio - Tu Barbería de Confianza",
-    description: "Barbería profesional. Cortes modernos y clásicos con atención personalizada.",
+    title: "Belle Studio - Tu Salón de Belleza",
+    description: "Salón de belleza profesional. Cortes, coloración, manicure y más con atención personalizada.",
     url: "https://example.com",
     siteName: "Belle Studio",
     locale: "es",
@@ -42,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Belle Studio - Tu Barbería de Confianza",
-    description: "Barbería profesional. Cortes modernos y clásicos con atención personalizada.",
+    title: "Belle Studio - Tu Salón de Belleza",
+    description: "Salón de belleza profesional. Cortes, coloración, manicure y más con atención personalizada.",
     images: ["/images/logos/icon-512.png"],
   },
   robots: {
@@ -124,7 +130,7 @@ export default function RootLayout({
         <meta name="msapplication-TileImage" content="/images/logos/icon-192.png" />
         
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} ${playfair.variable} antialiased`}>
         {children}
       </body>
     </html>

@@ -19,7 +19,7 @@ const statusFilters: { key: Filter; label: string; color: string }[] = [
 
 const typeFilters: { key: TypeFilter; label: string }[] = [
   { key: 'todas', label: 'Todas' },
-  { key: 'en_tienda', label: 'Barbería' },
+  { key: 'en_tienda', label: 'En Salón' },
   { key: 'delivery', label: 'Delivery' },
 ]
 
@@ -33,14 +33,14 @@ export default function CitasPage() {
   const [branchFilter, setBranchFilter] = useState<string>('todas')
   const [filter, setFilter] = useState<Filter>(() => {
     if (typeof window !== 'undefined') {
-      const cached = sessionStorage.getItem('jd_initial_filter')
+      const cached = sessionStorage.getItem('bs_initial_filter')
       if (cached) return cached as Filter
     }
     return 'pendiente'
   })
   const [initializing, setInitializing] = useState(() => {
     if (typeof window !== 'undefined') {
-      return !sessionStorage.getItem('jd_initial_filter')
+      return !sessionStorage.getItem('bs_initial_filter')
     }
     return true
   })
@@ -77,7 +77,7 @@ export default function CitasPage() {
       } catch {
         // Use default 'pendiente'
       } finally {
-        sessionStorage.setItem('jd_initial_filter', resolved)
+        sessionStorage.setItem('bs_initial_filter', resolved)
         setInitializing(false)
       }
     }
@@ -235,7 +235,7 @@ export default function CitasPage() {
                   onChange={e => { setBarberFilter(e.target.value); setIsLoading(true) }}
                   className="bg-zinc-900 border border-white/[0.08] rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-pink-500/50 transition-colors"
                 >
-                  <option value="todos">Todos los barberos</option>
+                  <option value="todos">Todas las estilistas</option>
                   {barbers.filter(b => b.is_active).map(b => (
                     <option key={b.id} value={b.id}>{b.name}</option>
                   ))}

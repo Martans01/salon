@@ -32,7 +32,7 @@ export interface NavLink {
 }
 
 // Barber profile type (used by individual plan from constants)
-export interface Belle Studiofile {
+export interface StylistProfile {
   name: string;
   title: string;
   bio: string;

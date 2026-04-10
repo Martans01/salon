@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(data, { status: 201 })
   } catch (error) {
     console.error('Error creating barber:', error)
-    return NextResponse.json({ error: 'Error al crear barbero' }, { status: 500 })
+    return NextResponse.json({ error: 'Error al crear estilista' }, { status: 500 })
   }
 }
 
@@ -123,7 +123,7 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json(data)
   } catch (error) {
     console.error('Error updating barber:', error)
-    return NextResponse.json({ error: 'Error al actualizar barbero' }, { status: 500 })
+    return NextResponse.json({ error: 'Error al actualizar estilista' }, { status: 500 })
   }
 }
 

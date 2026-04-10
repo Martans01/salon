@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --glow-pink: rgba(236, 72, 153, 0.6);
+  --background: #fdf8f5;
+  --foreground: #3d2c33;
+  --glow-pink: rgba(196, 139, 139, 0.6);
 }
 
 @theme inline {
@@ -13,27 +13,24 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #fdf8f5;
+  color: #3d2c33;
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair), Georgia, 'Times New Roman', serif;
 }
 
 /* Solo prevenir overflow horizontal en containers específicos */
@@ -45,41 +42,40 @@ body {
   max-width: 100%;
 }
 
-/* Responsive: solo prevenir scroll horizontal, nunca tocar el vertical */
 @media (max-width: 768px) {
   body, html {
     overflow-x: hidden;
   }
 }
 
-/* ── Premium Utility Classes ── */
+/* ── Elegant Utility Classes ── */
 
-/* Glow button with pulsing pink shadow */
+/* Glow button with soft rose shadow */
 .glow-button {
-  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(236, 72, 153, 0.1);
-  animation: glow-pulse 2s ease-in-out infinite;
+  box-shadow: 0 4px 20px rgba(196, 139, 139, 0.35), 0 0 40px rgba(196, 139, 139, 0.1);
+  animation: glow-pulse 3s ease-in-out infinite;
 }
 
 @keyframes glow-pulse {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(236, 72, 153, 0.1);
+    box-shadow: 0 4px 20px rgba(196, 139, 139, 0.35), 0 0 40px rgba(196, 139, 139, 0.1);
   }
   50% {
-    box-shadow: 0 0 30px rgba(236, 72, 153, 0.5), 0 0 60px rgba(236, 72, 153, 0.2);
+    box-shadow: 0 4px 30px rgba(196, 139, 139, 0.5), 0 0 60px rgba(196, 139, 139, 0.15);
   }
 }
 
-/* Glass card with backdrop blur */
+/* Glass card */
 .glass-card {
-  background: rgba(24, 24, 27, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(196, 139, 139, 0.15);
 }
 
-/* Text gradient pink */
+/* Text gradient rose */
 .text-gradient {
-  background: linear-gradient(135deg, #ec4899, #f9a8d4, #ec4899);
+  background: linear-gradient(135deg, #c48b8b, #e0b4b7, #c48b8b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -102,7 +98,7 @@ body {
 /* Section divider gradient */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #ec4899, transparent);
+  background: linear-gradient(90deg, transparent, #c48b8b, transparent);
 }
 
 /* Badge glow */
@@ -112,10 +108,10 @@ body {
 
 @keyframes badge-glow {
   0%, 100% {
-    box-shadow: 0 0 8px rgba(236, 72, 153, 0.4);
+    box-shadow: 0 0 8px rgba(196, 139, 139, 0.4);
   }
   50% {
-    box-shadow: 0 0 16px rgba(236, 72, 153, 0.7), 0 0 32px rgba(236, 72, 153, 0.3);
+    box-shadow: 0 0 16px rgba(196, 139, 139, 0.6), 0 0 32px rgba(196, 139, 139, 0.2);
   }
 }
 
@@ -148,10 +144,10 @@ body {
     content: '';
     display: block;
     width: 0;
-    height: 2px;
-    background: #ec4899;
+    height: 1px;
+    background: linear-gradient(90deg, #c48b8b, #e0b4b7);
     transition: width 0.3s ease;
-    margin: 2px auto 0;
+    margin: 4px auto 0;
   }
 
   .nav-link-premium:hover::after {
@@ -161,42 +157,42 @@ body {
 
 /* Ring glow for about portrait */
 .ring-glow {
-  box-shadow: 0 0 20px rgba(236, 72, 153, 0.15);
+  box-shadow: 0 0 30px rgba(196, 139, 139, 0.2);
   animation: ring-glow-pulse 3s ease-in-out infinite;
 }
 
 @keyframes ring-glow-pulse {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(236, 72, 153, 0.15);
+    box-shadow: 0 0 30px rgba(196, 139, 139, 0.2);
   }
   50% {
-    box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
+    box-shadow: 0 0 50px rgba(196, 139, 139, 0.3);
   }
 }
 
-/* Contact card hover lift + glow */
+/* Contact card hover */
 .contact-card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   border: 1px solid transparent;
 }
 
 .contact-card-hover:hover {
-  border-color: rgba(236, 72, 153, 0.25);
+  border-color: rgba(196, 139, 139, 0.3);
 }
 
-/* Admin card: glass-card + hover lift + border glow */
+/* Admin card */
 .admin-card {
-  background: rgba(24, 24, 27, 0.6);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(196, 139, 139, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .admin-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(236, 72, 153, 0.2);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 12px rgba(236, 72, 153, 0.08);
+  border-color: rgba(196, 139, 139, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 0 12px rgba(196, 139, 139, 0.1);
 }
 
 /* Shimmer skeleton animation */
@@ -210,7 +206,7 @@ body {
 }
 
 .shimmer-skeleton {
-  background: linear-gradient(90deg, rgba(39, 39, 42, 0.6) 25%, rgba(63, 63, 70, 0.4) 50%, rgba(39, 39, 42, 0.6) 75%);
+  background: linear-gradient(90deg, rgba(245, 235, 228, 0.6) 25%, rgba(248, 232, 232, 0.4) 50%, rgba(245, 235, 228, 0.6) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
 }
@@ -226,7 +222,7 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #ec4899, transparent 50%, #ec4899);
+  background: linear-gradient(135deg, #c48b8b, transparent 50%, #e0b4b7);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -250,4 +246,10 @@ body {
   100% {
     transform: translateX(0);
   }
+}
+
+/* Elegant decorative line */
+.elegant-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196, 139, 139, 0.5), transparent);
 }

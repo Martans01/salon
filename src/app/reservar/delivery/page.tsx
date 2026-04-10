@@ -64,8 +64,8 @@ export default function DeliveryPage() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const savedName = localStorage.getItem('jd_client_name')
-    const savedPhone = localStorage.getItem('jd_client_phone')
+    const savedName = localStorage.getItem('bs_client_name')
+    const savedPhone = localStorage.getItem('bs_client_phone')
     if (savedName) setClientName(savedName)
     if (savedPhone) setClientPhone(savedPhone)
   }, [])
@@ -120,7 +120,7 @@ export default function DeliveryPage() {
         const res = await fetch('/api/barbers')
         if (res.ok) setBarbers(await res.json())
       } catch {
-        setError('Error cargando barberos')
+        setError('Error cargando estilistas')
       } finally {
         setIsLoadingBarbers(false)
       }
@@ -189,7 +189,7 @@ export default function DeliveryPage() {
     fetch(`/api/barbers?branch_id=${branchId}`)
       .then(r => r.ok ? r.json() : [])
       .then(data => setBarbers(Array.isArray(data) ? data : []))
-      .catch(() => setError('Error cargando barberos'))
+      .catch(() => setError('Error cargando estilistas'))
       .finally(() => setIsLoadingBarbers(false))
   }
 
@@ -237,8 +237,8 @@ export default function DeliveryPage() {
     setError(null)
 
     try {
-      localStorage.setItem('jd_client_name', clientName.trim())
-      localStorage.setItem('jd_client_phone', clientPhone)
+      localStorage.setItem('bs_client_name', clientName.trim())
+      localStorage.setItem('bs_client_phone', clientPhone)
 
       const res = await fetch('/api/book', {
         method: 'POST',
@@ -283,7 +283,7 @@ export default function DeliveryPage() {
 
   const steps: { key: Step; label: string }[] = [
     ...(hasMultipleBranches ? [{ key: 'branch' as Step, label: 'Sucursal' }] : []),
-    ...(hasMultipleBarbers ? [{ key: 'barber' as Step, label: 'Barbero' }] : []),
+    ...(hasMultipleBarbers ? [{ key: 'barber' as Step, label: 'Estilista' }] : []),
     { key: 'date', label: 'Fecha' },
     { key: 'time', label: 'Hora' },
     { key: 'services', label: 'Servicios' },
@@ -360,7 +360,7 @@ export default function DeliveryPage() {
                   Cambiar sucursal
                 </button>
               )}
-              <h2 className="text-xl font-bold text-white mb-1">Elige tu barbero</h2>
+              <h2 className="text-xl font-bold text-white mb-1">Elige tu estilista</h2>
               <p className="text-zinc-400 text-sm mb-4">Selecciona con quién deseas tu cita a domicilio</p>
               <BarberSelector
                 barbers={barbers}
@@ -377,7 +377,7 @@ export default function DeliveryPage() {
               {hasMultipleBarbers && (
                 <button onClick={() => setStep('barber')} className="text-pink-500 text-sm mb-3 flex items-center gap-1 hover:underline">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-                  Cambiar barbero
+                  Cambiar estilista
                 </button>
               )}
               <div className="flex items-center gap-2 mb-1">
@@ -389,7 +389,7 @@ export default function DeliveryPage() {
               ) : availableDates.length === 0 ? (
                 <div className="bg-zinc-900 rounded-xl p-8 text-center">
                   <p className="text-zinc-400">No hay horarios delivery disponibles por el momento.</p>
-                  <p className="text-zinc-500 text-sm mt-2">Contacta al barbero por WhatsApp.</p>
+                  <p className="text-zinc-500 text-sm mt-2">Contáctanos por WhatsApp.</p>
                   <a
                     href={`https://wa.me/${BUSINESS_INFO.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hola! Me gustaría agendar un corte a domicilio. ¿Tienes disponibilidad?')}`}
                     target="_blank"
@@ -543,7 +543,7 @@ export default function DeliveryPage() {
                 )}
                 {selectedBarber && (
                   <div className="flex justify-between text-sm">
-                    <span className="text-zinc-400">Barbero</span>
+                    <span className="text-zinc-400">Estilista</span>
                     <span className="text-white">{selectedBarber.name}</span>
                   </div>
                 )}

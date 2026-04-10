@@ -11,7 +11,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="hero min-h-screen flex items-center justify-center relative bg-black overflow-hidden"
+      className="hero min-h-screen flex items-center justify-center relative bg-[#fdf8f5] overflow-hidden"
     >
       <BackgroundCarousel />
       <HeroContent onLocationClick={handleLocationClick} />

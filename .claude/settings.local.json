@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -L -o salon1.jpg \"https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=80\")",
+      "Bash(curl -L -o salon2.jpg \"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=80\")",
+      "Bash(curl -L -o salon3.jpg \"https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&q=80\")",
+      "Bash(curl -L -o salon4.jpg \"https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=1200&q=80\")",
+      "Bash(curl -L -o salon5.jpg \"https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=1200&q=80\")",
+      "Bash(curl -L -o salon6.jpg \"https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=1200&q=80\")",
+      "Bash(curl -L -o salon7.jpg \"https://images.unsplash.com/photo-1562322140-8baeececf3df?w=1200&q=80\")",
+      "Bash(curl -L -o salon8.jpg \"https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1200&q=80\")",
+      "Bash(curl -L -o about-salon.jpg \"https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80\")",
+      "Bash(npm run:*)",
+      "Bash(npx next:*)",
+      "Bash(curl:*)",
+      "Bash(netstat -ano)",
+      "Bash(npx tsc:*)",
+      "Bash(git add:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "supabase"
+  ]
+}

@@ -187,7 +187,7 @@ export default function GananciasPage() {
                 onChange={e => setBarberFilter(e.target.value)}
                 className="bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-pink-500"
               >
-                <option value="todos">Todos los barberos</option>
+                <option value="todos">Todas las estilistas</option>
                 {barbers.filter(b => b.is_active).map(b => (
                   <option key={b.id} value={b.id}>{b.name}</option>
                 ))}
@@ -291,7 +291,7 @@ export default function GananciasPage() {
                   : 'text-zinc-500 hover:text-white'
               }`}
             >
-              Por Barbero
+              Por Estilista
             </button>
             <button
               onClick={() => setViewMode('general')}
@@ -388,7 +388,7 @@ export default function GananciasPage() {
                           />
                         </div>
                         <div className="flex justify-between text-[10px] mt-1">
-                          <span className="text-pink-400">Barbero: ${barberCut.toFixed(2)} ({commission}%)</span>
+                          <span className="text-pink-400">Estilista: ${barberCut.toFixed(2)} ({commission}%)</span>
                           <span className="text-green-400">Local: ${houseCut.toFixed(2)} ({100 - commission}%)</span>
                         </div>
                       </div>
@@ -450,7 +450,7 @@ export default function GananciasPage() {
                     <span className="text-green-400 font-bold text-lg">${totalHouseCut.toFixed(2)}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-zinc-500 text-sm">Pago a barberos</span>
+                    <span className="text-zinc-500 text-sm">Pago a estilistas</span>
                     <span className="text-pink-400 font-medium">${totalBarbersCut.toFixed(2)}</span>
                   </div>
                 </div>

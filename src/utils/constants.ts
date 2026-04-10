@@ -1,4 +1,4 @@
-import { BusinessInfo, Service, BackgroundImage, NavLink, Belle Studiofile } from '@/types';
+import { BusinessInfo, Service, BackgroundImage, NavLink, StylistProfile } from '@/types';
 
 // Business information
 export const BUSINESS_INFO: BusinessInfo = {
@@ -45,12 +45,12 @@ export const SERVICES: Service[] = [
 ];
 
 // Stylist profile
-export const BARBER_PROFILE: Belle Studiofile = {
+export const BARBER_PROFILE: StylistProfile = {
   name: 'Isabella Morales',
   title: '',
   bio: 'Estilista profesional con años de experiencia en coloración, cortes de tendencia y cuidado capilar. Mi pasión es realzar la belleza natural de cada clienta, combinando técnicas innovadoras con un trato personalizado para que siempre salgas sintiéndote increíble.',
   yearsOfExperience: 8,
-  imageSrc: '/images/cortes/about.jpg',
+  imageSrc: '/images/cortes/about-salon.jpg',
   imageAlt: 'Isabella - Estilista Profesional',
 };
 
@@ -64,21 +64,21 @@ export const NAV_LINKS: NavLink[] = [
 
 // Background carousel images
 export const BACKGROUND_IMAGES: BackgroundImage[] = [
-  { src: '/images/cortes/corte.jpg', alt: 'Corte y peinado profesional' },
-  { src: '/images/cortes/corte2.jpg', alt: 'Coloración y mechas' },
-  { src: '/images/cortes/corte3.jpg', alt: 'Estilo elegante' },
-  { src: '/images/cortes/corte4.jpg', alt: 'Tratamiento capilar' },
-  { src: '/images/cortes/corte5.jpg', alt: 'Manicure artístico' },
-  { src: '/images/cortes/corte6.jpg', alt: 'Peinado de evento' },
-  { src: '/images/cortes/corte7.jpg', alt: 'Look vanguardista' },
-  { src: '/images/cortes/corte8.jpg', alt: 'Transformación completa' }
+  { src: '/images/cortes/salon1.jpg', alt: 'Salón de belleza profesional' },
+  { src: '/images/cortes/salon2.jpg', alt: 'Estilismo y coloración' },
+  { src: '/images/cortes/salon3.jpg', alt: 'Belleza y estilo' },
+  { src: '/images/cortes/salon4.jpg', alt: 'Peinados elegantes' },
+  { src: '/images/cortes/salon5.jpg', alt: 'Cuidado capilar' },
+  { src: '/images/cortes/salon6.jpg', alt: 'Spa y relajación' },
+  { src: '/images/cortes/salon7.jpg', alt: 'Coloración profesional' },
+  { src: '/images/cortes/salon8.jpg', alt: 'Transformación de look' }
 ];
 
 // Colors
 export const COLORS = {
-  primary: '#ec4899', // Pink
-  background: '#000000', // Black
-  text: '#ffffff', // White
-  textSecondary: '#cccccc', // Light gray
-  cardBackground: '#2a2a2a' // Dark gray
+  primary: '#c48b8b', // Soft rose
+  background: '#fdf8f5', // Cream
+  text: '#3d2c33', // Warm dark
+  textSecondary: '#5a4249', // Warm gray
+  cardBackground: '#ffffff' // White
 } as const;

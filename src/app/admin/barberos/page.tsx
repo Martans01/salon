@@ -124,7 +124,7 @@ export default function BarberosPage() {
         throw new Error(data.error || 'Error al guardar')
       }
 
-      showMessage('success', editingId ? 'Barbero actualizado' : 'Barbero creado')
+      showMessage('success', editingId ? 'Estilista actualizada' : 'Estilista creada')
       closeForm()
       loadBarbers()
     } catch (err) {
@@ -197,8 +197,8 @@ export default function BarberosPage() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-white">Barberos</h1>
-            <p className="text-zinc-500 text-sm mt-1">Gestiona el equipo de barberos</p>
+            <h1 className="text-2xl font-bold text-white">Estilistas</h1>
+            <p className="text-zinc-500 text-sm mt-1">Gestiona el equipo de estilistas</p>
           </div>
           <button
             onClick={openCreateForm}
@@ -229,12 +229,12 @@ export default function BarberosPage() {
           </div>
         ) : sortedBarbers.length === 0 ? (
           <div className="bg-zinc-900 rounded-xl p-8 text-center border border-zinc-800">
-            <p className="text-zinc-500 mb-4">No hay barberos registrados</p>
+            <p className="text-zinc-500 mb-4">No hay estilistas registradas</p>
             <button
               onClick={openCreateForm}
               className="text-pink-500 hover:text-pink-400 text-sm font-medium"
             >
-              Crear el primer barbero
+              Crear la primera estilista
             </button>
           </div>
         ) : (
@@ -353,7 +353,7 @@ export default function BarberosPage() {
           >
             <div className="sticky top-0 bg-zinc-950 border-b border-zinc-800 px-5 py-4 flex items-center justify-between">
               <h2 className="text-lg font-bold text-white">
-                {editingId ? 'Editar barbero' : 'Nuevo barbero'}
+                {editingId ? 'Editar estilista' : 'Nueva estilista'}
               </h2>
               <button
                 onClick={closeForm}
@@ -454,7 +454,7 @@ export default function BarberosPage() {
                     onChange={e => setForm({ ...form, commission_percent: Math.min(100, Math.max(0, parseInt(e.target.value) || 0)) })}
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-white placeholder-zinc-600 focus:outline-none focus:border-pink-500"
                   />
-                  <p className="text-zinc-600 text-[10px] mt-1">% que recibe el barbero</p>
+                  <p className="text-zinc-600 text-[10px] mt-1">% que recibe la estilista</p>
                 </div>
               </div>
 
