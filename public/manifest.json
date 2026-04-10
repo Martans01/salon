@@ -1,0 +1,69 @@
+{
+  "name": "BarberPro Admin",
+  "short_name": "BP Admin",
+  "description": "Panel de administración BarberPro",
+  "lang": "es",
+  "start_url": "/admin/citas",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "orientation": "any",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logos/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logos/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logos/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["business"],
+  "shortcuts": [
+    {
+      "name": "Citas",
+      "short_name": "Citas",
+      "description": "Ver y gestionar citas",
+      "url": "/admin/citas",
+      "icons": [
+        {
+          "src": "/images/logos/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Disponibilidad",
+      "short_name": "Horarios",
+      "description": "Gestionar disponibilidad",
+      "url": "/admin/disponibilidad",
+      "icons": [
+        {
+          "src": "/images/logos/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
